@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
       if (user) {
         console.log('Usuario autenticado:', user);
         this.mostrarAlerta('Inicio de Sesión Exitoso', '¡Bienvenido de nuevo!');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/cars']);
       }
     } catch (error: any) {
       console.error('Error inesperado durante el inicio de sesión:', error);

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
 import { environment } from '../../environments/environment'; // Asumimos que tienes tus credenciales aquí
+import { Vehiculo } from '../interfaces/vehiculo';
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,13 @@ export class BdserviceService {
 
   onAuthStateChange(callback: (event: string, session: any) => void) {
     return this.supabase.auth.onAuthStateChange(callback);
+  }
+
+  async getVehiculos(): Promise<{ data: Vehiculo[] | null, error: any }> {
+    const { data, error } = await this.supabase
+      .from('vehiculos')
+      .select('*')
+      .order('created_at', { ascending: false }); // Opcional: ordenar por fecha de creación
+    return { data, error };
   }
 }
