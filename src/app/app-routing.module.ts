@@ -25,9 +25,9 @@ const routes: Routes = [
     loadComponent: () => import('./pages/cars/cars.page').then( m => m.CarsPage)
     },
     {
-    path: 'car-detail',
-    loadComponent: () => import('./pages/car-detail/car-detail.page').then( m => m.CarDetailPage)
-    }
+    path: 'vehiculo-detalle/:id', // Ruta para los detalles del vehículo
+    loadComponent: () => import('./pages/car-detail/car-detail.page').then(m => m.CarDetailPage)
+   }
   // ... más rutas si las tienes
 ];
 

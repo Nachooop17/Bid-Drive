@@ -50,4 +50,12 @@ export class BdserviceService {
       .order('created_at', { ascending: false }); // Opcional: ordenar por fecha de creación
     return { data, error };
   }
+  async getVehiculoById(id: number): Promise<{ data: Vehiculo | null, error: any }> {
+    const { data, error } = await this.supabase
+      .from('vehiculos')
+      .select('*')
+      .eq('id', id)
+      .single(); // .single() para obtener un solo objeto en lugar de un array
+    return { data, error };
+  }
 }

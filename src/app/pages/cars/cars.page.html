@@ -40,9 +40,6 @@
       </ion-card-header>
       <ion-card-content>
         <p><strong>Precio:</strong> {{ vehiculo.precio_clp | currency:'CLP':'symbol':'3.0-0' }}</p>
-        <p><strong>Kilometraje:</strong> {{ vehiculo.kilometraje | number }} km</p>
-        <p><strong>Combustible:</strong> {{ vehiculo.combustible }}</p>
-        <p><strong>Transmisión:</strong> {{ vehiculo.transmision }}</p>
         <ion-button expand="block" fill="clear" [routerLink]="['/vehiculo-detalle', vehiculo.id]">
           Ver Detalles
         </ion-button>
