@@ -1,0 +1,7 @@
+{
+  "name": "Bid Drive",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
