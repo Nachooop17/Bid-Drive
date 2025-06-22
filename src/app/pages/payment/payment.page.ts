@@ -43,11 +43,11 @@ export class PaymentPage implements OnInit {
           // Por ejemplo, puedes usar fetch o HttpClient para llamar a tu API
           // Retorna una promesa
           return fetch('https://bid-drive.onrender.com/crear-pago', {
-            method: 'POST',
-            body: JSON.stringify({ amount: 1000, title: 'Auto' }),
-            headers: { 'Content-Type': 'application/json' }
-          })
-          .then(res => res.json());
+          method: 'POST',
+          body: JSON.stringify({ amount: 1000, title: 'Auto' }),
+          headers: { 'Content-Type': 'application/json' }
+        })
+.then(res => res.json());
         },
         onError: (error: any) => {
           console.error(error);
