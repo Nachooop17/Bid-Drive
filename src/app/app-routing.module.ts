@@ -27,7 +27,11 @@ const routes: Routes = [
     {
     path: 'vehiculo-detalle/:id', // Ruta para los detalles del vehículo
     loadComponent: () => import('./pages/car-detail/car-detail.page').then(m => m.CarDetailPage)
-   }
+   },
+  {
+    path: 'payment',
+    loadChildren: () => import('./pages/payment/payment.module').then( m => m.PaymentPageModule)
+  }
   // ... más rutas si las tienes
 ];
 

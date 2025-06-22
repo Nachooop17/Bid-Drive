@@ -2,7 +2,7 @@ import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; // Im
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, LoadingController, NavController, ToastController } from '@ionic/angular';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { BdserviceService } from '../../services/bdservice.service';
 import { Vehiculo } from '../../interfaces/vehiculo';
 // No es necesario importar 'register' de swiper si usas CUSTOM_ELEMENTS_SCHEMA para los elementos de Swiper
@@ -27,6 +27,7 @@ export class CarDetailPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private bdservice: BdserviceService,
     private loadingController: LoadingController,
     private toastController: ToastController,
@@ -70,6 +71,11 @@ export class CarDetailPage implements OnInit {
       this.navController.back();
     }
   }
+
+  pagarVehiculo() {
+  // Aquí puedes navegar a la página de pago y pasar el id o los datos del auto
+  this.router.navigate(['/payment'], { queryParams: { id: this.vehiculo?.id } });
+}
 
   getPrimeraImagen(imagenes: string[] | undefined): string {
     if (imagenes && imagenes.length > 0 && imagenes[0]) {

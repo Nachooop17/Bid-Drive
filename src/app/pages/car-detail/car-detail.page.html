@@ -65,6 +65,23 @@
       </ion-card-content>
     </ion-card>
 
+    <ion-card-content>
+      <ion-list lines="none">
+        <!-- ...otros ion-item... -->
+        <ion-item *ngIf="vehiculo.vendido">
+          <ion-label color="danger"><strong>Estado:</strong></ion-label>
+          <ion-text slot="end" color="danger">Vendido</ion-text>
+        </ion-item>
+      </ion-list>
+
+      <!-- BOTÓN DE PAGO SOLO SI NO ESTÁ VENDIDO -->
+      <div class="ion-text-center" *ngIf="!vehiculo.vendido">
+        <ion-button expand="block" color="success" (click)="pagarVehiculo()">
+          Comprar con Mercado Pago
+        </ion-button>
+      </div>
+    </ion-card-content>
+
     <!-- Aquí podrías añadir más imágenes si hay varias -->
     <div *ngIf="vehiculo.imagenes && vehiculo.imagenes.length > 1" class="ion-padding">
       <h3>Más Imágenes</h3>
