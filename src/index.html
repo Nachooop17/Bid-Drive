@@ -9,14 +9,13 @@
 
   <!-- Content Security Policy que permite tu backend y Mercado Pago -->
   <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self' https://sdk.mercadopago.com https://bid-drive.onrender.com;
-    script-src 'self' https://sdk.mercadopago.com;
-    connect-src 'self' https://bid-drive.onrender.com https://api.mercadopago.com https://rdxbtmtwgtixjgoyaooz.supabase.co;
-    style-src 'self' 'unsafe-inline';
-    img-src 'self' data: https://sdk.mercadopago.com;
-    frame-src https://www.mercadopago.com.ar https://www.mercadopago.com;
-  ">
-
+  default-src 'self' https://sdk.mercadopago.com https://bid-drive.onrender.com;
+  script-src 'self' 'unsafe-inline' https://sdk.mercadopago.com https://http2.mlstatic.com;
+  connect-src 'self' https://bid-drive.onrender.com https://api.mercadopago.com https://rdxbtmtwgtixjgoyaooz.supabase.co https://api.mercadolibre.com https://http2.mlstatic.com https://www.mercadolibre.com https://www.mercadolibre.cl https://www.mercadolivre.com;
+  style-src 'self' 'unsafe-inline';
+  img-src 'self' data: https://sdk.mercadopago.com https://www.mercadolibre.com https://http2.mlstatic.com https://rdxbtmtwgtixjgoyaooz.supabase.co https://www.mercadolivre.com https://www.mercadolibre.cl;
+  frame-src https://www.mercadopago.com.ar https://www.mercadopago.com https://www.mercadolibre.com https://www.mercadolibre.cl https://www.mercadolivre.com;
+">
   <meta name="color-scheme" content="light dark" />
   <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
