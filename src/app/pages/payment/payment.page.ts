@@ -29,6 +29,9 @@ export class PaymentPage implements OnInit {
       }, 100);
     }
   }
+  realizarPago(): Promise<string> {
+  return Promise.resolve('ok');
+}
 
   initMercadoPago() {
     this.mp = new window.MercadoPago('TEST-8147ef43-104b-4932-a8b4-3ae470c1dd36', {
