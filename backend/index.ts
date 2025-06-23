@@ -9,7 +9,7 @@ app.use(cors());
 // Configura tu Access Token de Mercado Pago aquí
 const client = new MercadoPagoConfig({ accessToken: 'TEST-5795038714450051-062204-02f9373c34461a5ba566574f22cd1ffd-278679942' });
 
-app.post('/procesar-pago', async (req: Request, res: Response) => {
+app.post('/crear-pago', async (req: Request, res: Response) => {
   try {
     const { token, paymentMethodId, issuerId, email, amount, installments, identification } = req.body;
 

@@ -52,17 +52,25 @@ export class PaymentPage implements OnInit {
         onReady: () => {
           // El Brick está listo
         },
-        onSubmit: async (formData: any) => {
+          onSubmit: async (formData: any) => {
           try {
-            // Envía todos los datos del formulario al backend
+            // Envía solo los datos necesarios al backend para crear el pago con la API de Mercado Pago
             const res = await fetch('https://bid-drive.onrender.com/crear-pago', {
               method: 'POST',
-              body: JSON.stringify(formData),
+              body: JSON.stringify({
+                token: formData.token,
+                paymentMethodId: formData.paymentMethodId,
+                issuerId: formData.issuerId,
+                email: formData.payer.email,
+                amount: formData.amount,
+                installments: formData.installments,
+                identification: formData.payer.identification
+              }),
               headers: { 'Content-Type': 'application/json' }
             });
             const data = await res.json();
 
-            // Suponiendo que tu backend responde con { status: 'approved' } o similar
+            // Verifica el estado del pago
             if (data.status === 'approved' || data.status === 'accredited') {
               alert('¡Pago realizado con éxito!');
               // Aquí puedes redirigir o mostrar un comprobante
