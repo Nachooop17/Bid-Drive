@@ -11,6 +11,7 @@ const client = new MercadoPagoConfig({ accessToken: 'TEST-5795038714450051-06220
 
 app.post('/crear-pago', async (req: Request, res: Response) => {
   try {
+    console.log('Datos recibidos:', req.body); // <-- Para depuración
     const { token, paymentMethodId, issuerId, email, amount, installments, identification } = req.body;
 
     const payment = new Payment(client);
@@ -33,8 +34,9 @@ app.post('/crear-pago', async (req: Request, res: Response) => {
       }
     });
 
-    res.json(result);
+    res.json(result); // <-- Solo el resultado
   } catch (error: any) {
+    console.log('Error al procesar el pago:', error); // <-- Log de error
     res.status(500).json({ error: error.message });
   }
 });
