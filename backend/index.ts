@@ -41,9 +41,9 @@ app.post('/crear-pago', async (req: Request, res: Response) => {
     } else {
       res.status(500).json({ error: 'No se pudo crear el pago.' });
     }
-  } catch (error) {
-    console.error('Error al procesar el pago:', error);
-    res.status(500).json({ error: 'Error interno del servidor.' });
+  } catch (error: any) {
+    console.error('Error al procesar el pago:', error?.message || error);
+    res.status(500).json({ error: error?.message || 'Error interno del servidor.' });
   }
 });
 
