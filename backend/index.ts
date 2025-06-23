@@ -34,10 +34,16 @@ app.post('/crear-pago', async (req: Request, res: Response) => {
       }
     });
 
-    res.json(result); // <-- Solo el resultado
-  } catch (error: any) {
-    console.log('Error al procesar el pago:', error); // <-- Log de error
-    res.status(500).json({ error: error.message });
+    console.log('Resultado Mercado Pago:', result);
+
+    if (result && result.id) {
+      res.json(result); // Ya es el objeto de pago
+    } else {
+      res.status(500).json({ error: 'No se pudo crear el pago.' });
+    }
+  } catch (error) {
+    console.error('Error al procesar el pago:', error);
+    res.status(500).json({ error: 'Error interno del servidor.' });
   }
 });
 
